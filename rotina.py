@@ -96,12 +96,12 @@ plt.show()
 #SIMULAÇÃO DA SEGUNDA PARTE DO SISTEMA#
 #######################################
 
+#Função do movimento da segunda parte do sistema
 def sistema2(N, kT, R, x0, v0, tmax, dt):
-    #Frequência Angular do Sistema
-    omega = np.sqrt(kT/N*R)
+    #Vetor intervalo de tempo
     t = np.arange(0, tmax, dt)
 
-    # Arrays para armazenar resultados
+    # Vetor para armazenar resultados
     x = np.zeros_like(t)
     v = np.zeros_like(t)
 
@@ -109,10 +109,9 @@ def sistema2(N, kT, R, x0, v0, tmax, dt):
     x[0] = x0
     v[0] = v0
 
-    # Simulação usando método de Euler
     for i in range(1, len(t)):
         # Atualiza a aceleração
-        a = - (kT / (M * R)) * x[i-1]
+        a = - (kT / (N * R)) * x[i-1]
         
         # Atualiza a velocidade
         v[i] = v[i-1] + a * dt
@@ -122,13 +121,15 @@ def sistema2(N, kT, R, x0, v0, tmax, dt):
     return t, x, v
 
 #Condições Iniciais
-x0 = 0.1            #m
+x0 = 1.0            #m
 v0 = 0.0            #m/s   
 tmax = 10.0         #s
 dt = 0.01           #s
 
+#Resultado da Função
 t, x, v = sistema2(N, kT, R, x0, v0, tmax, dt)
 
+#Resultados Gráficos da Segunda Parte do Sistema
 plt.figure(figsize=(10, 5))
 plt.plot(t, x, label='Posição(x)')
 plt.xlabel('Tempo[s]')
