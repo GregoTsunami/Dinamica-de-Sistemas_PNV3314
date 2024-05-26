@@ -36,9 +36,10 @@ sol = solve_ivp(sistema, t_span, y0, args=(M, m, ks, cs, k1, c1, k2, c2), t_eval
 #Resultado Gráfico do Deslocamento do Sistema
 plt.plot(sol.t, sol.y[0], label='y_M(t)')
 plt.plot(sol.t, sol.y[2], label='y_m(t)')
-plt.xlabel('Tempo')
-plt.ylabel('Deslocamento')
+plt.xlabel('Tempo[s]')
+plt.ylabel('Deslocamento[m]')
 plt.legend()
+plt.title('Deslocamento do Sistema')
 plt.grid()
 plt.show()
 
@@ -79,8 +80,8 @@ sol_m = solve_ivp(sistema_m, t_span, y0_m, args=(m, k1, c1, k2, c2), t_eval=t_ev
 #Resultados Gráficos dos Deslocamentos
 plt.plot(sol_M.t, sol_M.y[0], label='y_M(t)')
 plt.plot(sol_m.t, sol_m.y[0], label='y_m(t)')
-plt.xlabel('Tempo')
-plt.ylabel('Deslocamento')
+plt.xlabel('Tempo[s]')
+plt.ylabel('Deslocamento[m]')
 plt.legend()
 plt.title('Resposta do Sistema Dinâmico Desacoplado')
 plt.grid()
