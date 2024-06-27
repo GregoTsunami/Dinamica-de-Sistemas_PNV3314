@@ -59,3 +59,38 @@ plt.legend()
 
 plt.tight_layout()
 plt.show()
+
+
+
+############################################################################
+def transferencia(t, y):
+    theta_ponto = y
+
+    # Equações de movimento
+    dtheta = theta_ponto    
+    Xm = 1/(-(dtheta**2)*m + 2*c*dtheta+2*k)
+    XM = 1/((-100/3)*(dtheta**2)+100*dtheta+2200)
+    return [Xm, XM]
+
+# Solução da Função
+t = sol.t
+dtheta = sol.y[0]
+Xm = sol.y[0]
+XM = sol.y[1]
+
+# Resultado Gráfico da Função de Transferência
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 6), sharex=True)
+
+ax1.plot(dtheta, Xm)
+ax1.set_title('Xm x Velocidade Angular')
+ax1.set_ylabel('Xm')
+ax1.grid(True)
+
+ax2.plot(dtheta, XM)
+ax2.set_title('XM vs. Velocidade Angular')
+ax2.set_xlabel('Velocidade Angular (rad/s)')
+ax2.set_ylabel('XM')
+ax2.grid(True)
+
+plt.tight_layout()
+plt.show()
