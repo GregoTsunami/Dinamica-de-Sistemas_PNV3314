@@ -2,7 +2,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
 
-# Parâmetros do sistema em unidades do SI
+# Parâmetros do sistema (ajustável)
 M = 200.0   # (kg)
 L = 1.5     # (m)
 k_T = 5000.0 # (N·m/rad)
@@ -16,7 +16,6 @@ F1 = 1000.0  # (N)
 #SIMULAÇÃO DO SISTEMA ACOPLADO#
 ###############################
 
-#Função Característica do Movimento do Sistema
 def sistema(t, y):
     theta, theta_ponto, x, x_ponto = y
 
